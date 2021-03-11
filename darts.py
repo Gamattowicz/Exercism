@@ -11,5 +11,3 @@ def score(x, y):
     elif radius <= 10:
         return 1
     return 0
-
-print(score(5, 5))
