@@ -27,12 +27,8 @@ def score(word):
         'Q': 10,
         'Z': 10,
     }
-    result = 0
-    for letter in word:
-        if letter == ' ' or letter == ',':
-            continue
-        result += values[letter.upper()]
-    return result
+    return sum([values[letter.upper()] for letter in word if (letter != ' '
+                                                              and letter != ',')])
 
 
 print(score("street, cif"))
