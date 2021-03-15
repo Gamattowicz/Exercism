@@ -9,7 +9,7 @@ def proteins(strand):
         'UGG': 'Tryptophan',
         ('UAA', 'UAG', 'UGA'): 'STOP',
         }
-    codons = [strand[i: i + 3] for i in range(0, len(strand) - 2, 3)]
+    codons = [strand[i: i + 3] for i in range(0, len(strand), 3)]
     result = []
     for codon in codons:
         for key in amino_acids.keys():
@@ -18,5 +18,3 @@ def proteins(strand):
                     return result
                 result.append(amino_acids[key])
     return result
-
-print(proteins('AUGUUUUGG'))
