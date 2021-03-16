@@ -1,9 +1,7 @@
 class PhoneNumber:
     def __init__(self, number):
-        self.number = ''.join([num for num in number if num.isdigit()])
-
-        if self.number[0] == '1':
-            self.number = self.number.replace('1', '', 1)
+        numbers = ''.join([num for num in number if num.isdigit()])
+        self.number = numbers[1:] if numbers[0] == '1' else numbers
 
         if len(self.number) != 10:
             raise ValueError('Phone number must have 10 numbers')
@@ -15,4 +13,4 @@ class PhoneNumber:
         self.area_code = self.number[0:3]
 
     def pretty(self):
-        return f'({self.number[0:3]})-{self.number[3:6]}-{self.number[6:10]}'
+        return f'({self.number[0:3]})-{self.number[3:6]}-{self.number[6:]}'
