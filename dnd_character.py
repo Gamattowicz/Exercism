@@ -12,9 +12,7 @@ class Character:
         self.hitpoints = 10 + modifier(self.constitution)
 
     def ability(self):
-        result = choices(range(1, 7), k=5)
-        result.remove(min(result))
-        return sum(result)
+        return sum(sorted(choices(range(1, 7), k=4)[1:]))
 
 
 def modifier(constitution):
