@@ -27,5 +27,5 @@ def score(word):
         'Q': 10,
         'Z': 10,
     }
-    return sum([values[letter.upper()] for letter in word if letter in
+    return sum([values[letter.upper()] for letter in word if letter.upper() in
                values.keys()])
