@@ -1,22 +1,15 @@
-from random import choices
+from random import choices, seed
 from string import ascii_uppercase, digits
 
 
 class Robot:
     def __init__(self):
-        self.name = ''
-        self.name2 = []
-
-        self.reset()
+        self.name = draw()
 
     def reset(self):
-        while True:
-            self.name = ''.join(choices(ascii_uppercase, k=2) + choices(digits, k=3))
-            if self.name not in self.name2:
-                self.name2.append(self.name)
-                break
+        self.__init__()
 
 
-# robot = Robot()
-# print(robot.result)
-# print(robot.name)
+def draw():
+    seed()
+    return ''.join(choices(ascii_uppercase, k=2) + choices(digits, k=3))
