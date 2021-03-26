@@ -2,5 +2,4 @@ import re
 
 
 def abbreviate(words):
-    return ''.join([word[0].upper() for word in re.split(r"[-_\s]+", words)
-                    if word[0].isalpha()])
+    return ''.join([word[0] for word in re.findall(r"[A-Z']+", words.upper())])
