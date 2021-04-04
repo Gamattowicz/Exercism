@@ -20,3 +20,10 @@ CHOICE = lambda x: sum(x)
 
 def score(dice, category):
     return category(dice)
+
+
+def longest(a, b):
+    return ''.join(sorted(set(a + b)))
+
+
+print(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"))
