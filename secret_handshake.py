@@ -8,10 +8,7 @@ secrets = {
 
 def commands(number):
     num = bin(number)[2:][::-1]
-    results = []
-    for i, v in enumerate((list(num)[:4]), 1):
-        if v == '1':
-            results.append(secrets[i])
+    results = [secrets[i] for i, v in enumerate(list(num)[:4], 1) if v == '1']
     if number >= 16:
         return results[::-1]
     else:
