@@ -9,11 +9,13 @@ class Garden:
                 'Harriet', 'Ileana', 'Joseph', 'Kincaid', 'Larry']
 
     def __init__(self, diagram, students=children):
-        self.diagram_1, self.diagram_2 = diagram.split('\n')
+        self.diagram_1, self.diagram_2 = diagram.splitlines()
         self.students = sorted(students)
+        self.cups = {}
+
+        for i in range(len(self.diagram_1) // 2):
+            seed_type = [self.diagram_1[i * 2], self.diagram_1[i * 2 + 1], self.diagram_2[i * 2], self.diagram_2[i * 2 + 1]]
+            self.cups[self.students[i]] = [self.seeds[i] for i in seed_type]
 
     def plants(self, student):
-        index = self.students.index(student) * 2
-
-        return [self.seeds[plant] for plant in (self.diagram_1[index:index+2] +
-                                                self.diagram_2[index:index+2])]
+        return self.cups[student]
