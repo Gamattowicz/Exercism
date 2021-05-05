@@ -1,19 +1,17 @@
 class Luhn:
     def __init__(self, card_num):
         self.card_num = card_num.replace(" ", "")
+        self.total = 1
+
+        if self.card_num.isdigit() and len(self.card_num) > 1:
+            first_num = [int(num) for num in self.card_num[-1::-2]]
+            double_num = [int(num) for num in self.card_num[-2::-2]]
+            for i, v in enumerate(double_num):
+                if v * 2 > 9:
+                    double_num[i] = v * 2 - 9
+                else:
+                    double_num[i] = v * 2
+            self.total = sum(first_num + double_num)
 
     def valid(self):
-        for num in self.card_num:
-            if not num.isdigit():
-                return False
-        single = [int(num) for num in self.card_num[-1::-2]]
-        doubled_num = []
-        for num in self.card_num[-2::-2]:
-            if int(num) * 2 <= 9:
-                doubled_num.append(int(num) * 2)
-            else:
-                doubled_num.append(int(num) * 2 - 9)
-        summary = single + doubled_num
-        if len(summary) < 2:
-            return False
-        return sum(summary) % 10 == 0
+        return self.total % 10 == 0
