@@ -11,7 +11,6 @@
 * [Darts](darts)
 * [Difference Of Squares](difference-of-squares)
 * [Grains](grains)
-* [Grep](grep)
 * [Hamming](hamming)
 * [Hello World](hello-world)
 * [High Scores](high-scores)
