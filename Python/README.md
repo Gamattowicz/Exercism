@@ -23,6 +23,7 @@
 * [Largest Series Product](largest-series-product)
 * [Leap](leap)
 * [Luhn](luhn)
+* [Markdown](markdown)
 * [Matrix](matrix)
 * [Meetup](meetup)
 * [Palindrome Products](palindrome-products)
